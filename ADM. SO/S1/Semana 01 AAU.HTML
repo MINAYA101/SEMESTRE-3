@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tarea - Estructuras del Sistema de Archivos</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      color:white;
+      padding:30px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .title h1{
+      font-size:3rem;
+      color:#38bdf8;
+    }
+
+    .title p{
+      margin-top:10px;
+      color:#cbd5e1;
+      font-size:1.1rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#1e293b;
+      border-radius:18px;
+      padding:25px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+      transition:0.3s;
+      border:2px solid transparent;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#38bdf8;
+    }
+
+    .card h2{
+      margin-bottom:18px;
+      color:#38bdf8;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.5rem;
+    }
+
+    .card ul{
+      padding-left:20px;
+      line-height:1.8;
+    }
+
+    .linux{
+      border-left:8px solid #f59e0b;
+    }
+
+    .windows{
+      border-left:8px solid #3b82f6;
+    }
+
+    .filesystem{
+      border-left:8px solid #10b981;
+    }
+
+    .ruta{
+      background:#0f172a;
+      padding:10px;
+      border-radius:10px;
+      margin-top:10px;
+      font-family:monospace;
+      color:#facc15;
+      overflow:auto;
+    }
+
+    .comparison{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+      margin-top:15px;
+    }
+
+    .box{
+      background:#334155;
+      padding:15px;
+      border-radius:12px;
+    }
+
+    .box h3{
+      margin-bottom:10px;
+      color:#f8fafc;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:40px;
+      color:#94a3b8;
+      font-size:0.95rem;
+    }
+
+    .tree{
+      background:#0f172a;
+      padding:15px;
+      border-radius:12px;
+      margin-top:15px;
+      font-family:monospace;
+      line-height:1.6;
+      color:#e2e8f0;
+    }
+
+    @media(max-width:700px){
+      .title h1{
+        font-size:2rem;
+      }
+
+      .comparison{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="title">
+    <h1><i class="fa-solid fa-folder-tree"></i> Sistemas de Archivos</h1>
+    <p>Comparación entre Linux y Windows</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Linux -->
+    <div class="card linux">
+      <h2><i class="fa-brands fa-linux"></i> Linux</h2>
+
+      <p>
+        Linux utiliza una estructura jerárquica que inicia desde la raíz <b>/</b>.
+      </p>
+
+      <div class="tree">
+        / <br>
+        ├── home <br>
+        ├── bin <br>
+        ├── etc <br>
+        ├── var <br>
+        ├── usr <br>
+        └── dev
+      </div>
+
+      <ul>
+        <li><b>Raíz:</b> /</li>
+        <li><b>Directorios:</b> home, etc, var, usr</li>
+        <li><b>Separador:</b> /</li>
+        <li><b>Extensiones:</b> opcionales</li>
+      </ul>
+
+      <div class="ruta">
+        Ejemplo de ruta: <br>
+        /home/usuario/documentos/tarea.txt
+      </div>
+    </div>
+
+    <!-- Windows -->
+    <div class="card windows">
+      <h2><i class="fa-brands fa-windows"></i> Windows</h2>
+
+      <p>
+        Windows organiza los archivos mediante unidades como C:\ y carpetas.
+      </p>
+
+      <div class="tree">
+        C:\ <br>
+        ├── Users <br>
+        ├── Program Files <br>
+        ├── Windows <br>
+        ├── Documents <br>
+        └── Downloads
+      </div>
+
+      <ul>
+        <li><b>Raíz:</b> C:\</li>
+        <li><b>Carpetas:</b> Users, Windows, Program Files</li>
+        <li><b>Separador:</b> \</li>
+        <li><b>Extensiones:</b> .exe, .txt, .jpg</li>
+      </ul>
+
+      <div class="ruta">
+        Ejemplo de ruta: <br>
+        C:\Users\Minaya\Documents\tarea.txt
+      </div>
+    </div>
+
+    <!-- ext4 -->
+    <div class="card filesystem">
+      <h2><i class="fa-solid fa-hard-drive"></i> ext4</h2>
+
+      <ul>
+        <li>Sistema de archivos usado en Linux.</li>
+        <li>Alto rendimiento y estabilidad.</li>
+        <li>Permite archivos grandes.</li>
+        <li>Menor fragmentación.</li>
+        <li>Compatible con journaling.</li>
+      </ul>
+
+      <div class="ruta">
+        Compatible con Ubuntu, Debian, Fedora, etc.
+      </div>
+    </div>
+
+    <!-- NTFS -->
+    <div class="card filesystem">
+      <h2><i class="fa-solid fa-database"></i> NTFS</h2>
+
+      <ul>
+        <li>Sistema de archivos principal de Windows.</li>
+        <li>Soporta permisos y cifrado.</li>
+        <li>Recuperación ante fallos.</li>
+        <li>Permite compresión de archivos.</li>
+        <li>Mayor seguridad y administración.</li>
+      </ul>
+
+      <div class="ruta">
+        Compatible con Windows 10, 11 y Server.
+      </div>
+    </div>
+
+    <!-- Comparación -->
+    <div class="card" style="grid-column:1/-1;">
+      <h2><i class="fa-solid fa-scale-balanced"></i> Comparación General</h2>
+
+      <div class="comparison">
+
+        <div class="box">
+          <h3>Linux</h3>
+          <ul>
+            <li>Código abierto</li>
+            <li>Más usado en servidores</li>
+            <li>Mayor control del sistema</li>
+            <li>Seguridad elevada</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Windows</h3>
+          <ul>
+            <li>Interfaz amigable</li>
+            <li>Mayor compatibilidad de software</li>
+            <li>Uso común en hogares y oficinas</li>
+            <li>Fácil de usar</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Elaborado en HTML y CSS por Minaya Garcia - UEA 2026
+  </div>
+
+</div>
+
+</body>
+</html>
