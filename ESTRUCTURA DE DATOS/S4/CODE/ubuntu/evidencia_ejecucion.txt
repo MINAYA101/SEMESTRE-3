@@ -1,0 +1,39 @@
+========================================
+   SISTEMA DE GESTIÓN DE TURNOS - CLÍNICA
+========================================
+1. Registrar Paciente
+2. Agendar Turno
+3. Ver Lista de Turnos
+4. Ver Estadísticas
+5. Salir
+
+Seleccione una opción: 1
+--- REGISTRO DE PACIENTE ---
+Cédula: 0912345678
+Nombre: Maria
+Apellido: Lopez
+Edad: 25
+Teléfono: 0987654321
+¡Paciente registrado con éxito!
+
+Seleccione una opción: 2
+--- AGENDAR TURNO ---
+Cédula del paciente: 0912345678
+Fecha (AAAA-MM-DD): 2026-06-21
+Hora (HH:MM): 10:30
+Especialidad: Odontología
+¡Turno agendado con éxito!
+
+Seleccione una opción: 3
+--- LISTADO DE TURNOS AGENDADOS ---
+FECHA        | HORA     | ESPECIALIDAD         | PACIENTE
+----------------------------------------------------------------------
+2026-06-20   | 09:00    | Cardiología          | Juan Pérez
+2026-06-21   | 10:30    | Odontología          | Maria Lopez
+
+Seleccione una opción: 4
+Total de pacientes registrados: 2
+Total de turnos agendados: 2
+
+Seleccione una opción: 5
+Saliendo del sistema...
