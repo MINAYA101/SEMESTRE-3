@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Nuevo Producto{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <span class="eyebrow">MÓDULO 01</span>
+        <h1>Registro de Producto</h1>
+        <p>Complete los campos para agregar un nuevo artículo al inventario.</p>
+    </div>
+</section>
+
+<section class="container section">
+    <div class="form-card" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <form method="POST" action="{{ url_for('nuevo_producto') }}" novalidate>
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group mb-3">
+                {{ form.codigo.label(class="form-label") }}
+                {{ form.codigo(class="form-control" + (" is-invalid" if form.codigo.errors else ""), placeholder="Ej: PR-006") }}
+                {% for error in form.codigo.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mb-3">
+                {{ form.nombre.label(class="form-label") }}
+                {{ form.nombre(class="form-control" + (" is-invalid" if form.nombre.errors else ""), placeholder="Nombre descriptivo") }}
+                {% for error in form.nombre.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mb-3">
+                {{ form.categoria.label(class="form-label") }}
+                {{ form.categoria(class="form-select" + (" is-invalid" if form.categoria.errors else "")) }}
+                {% for error in form.categoria.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                    {{ form.precio.label(class="form-label") }}
+                    {{ form.precio(class="form-control" + (" is-invalid" if form.precio.errors else ""), placeholder="0.00") }}
+                    {% for error in form.precio.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    {{ form.stock.label(class="form-label") }}
+                    {{ form.stock(class="form-control" + (" is-invalid" if form.stock.errors else ""), placeholder="0") }}
+                    {% for error in form.stock.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                {{ form.estado.label(class="form-label") }}
+                {{ form.estado(class="form-select" + (" is-invalid" if form.estado.errors else "")) }}
+                {% for error in form.estado.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="d-flex gap-2">
+                {{ form.submit(class="btn btn-primary") }}
+                <a href="{{ url_for('productos') }}" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
