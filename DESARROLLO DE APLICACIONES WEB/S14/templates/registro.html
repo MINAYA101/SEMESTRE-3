@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Registro de usuario{% endblock %}
+{% block content %}
+<section class="page-banner"><div class="container"><span class="eyebrow">NUEVA CUENTA</span><h1>Crear usuario</h1><p>Las contraseñas se almacenan protegidas mediante hash.</p></div></section>
+<section class="section"><div class="container" style="max-width:520px"><div class="table-card p-4 p-md-5">
+<form method="post" novalidate>{{ form.hidden_tag() }}
+{% for campo in [form.usuario, form.password, form.confirmar_password] %}<div class="mb-3">{{ campo.label(class="form-label") }}{{ campo(class="form-control") }}{% for error in campo.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}</div>{% endfor %}
+{{ form.submit(class="btn btn-primary w-100 mt-2") }}</form>
+<p class="muted mt-4 text-center">¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Inicia sesión</a></p>
+</div></div></section>
+{% endblock %}

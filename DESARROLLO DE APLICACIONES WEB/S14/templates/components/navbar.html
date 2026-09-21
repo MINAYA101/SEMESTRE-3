@@ -1,0 +1,18 @@
+<header class="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="{{ url_for('inicio') }}"><span class="brand-mark">FN</span><span>Ferre<span class="brand-accent">Nova</span></span></a>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        {% if current_user.is_authenticated %}
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="{{ url_for('inicio') }}" class="{% if request.endpoint == 'inicio' %}active{% endif %}">Inicio</a>
+            <a href="{{ url_for('productos') }}" class="{% if request.endpoint == 'productos' %}active{% endif %}">Productos</a>
+            <a href="{{ url_for('clientes') }}" class="{% if request.endpoint == 'clientes' %}active{% endif %}">Clientes</a>
+            <a href="{{ url_for('proveedores') }}" class="{% if request.endpoint == 'proveedores' %}active{% endif %}">Proveedores</a>
+            <a href="{{ url_for('facturacion') }}" class="{% if request.endpoint == 'facturacion' %}active{% endif %}">Facturación</a>
+        </nav>
+        <span class="status-pill">{{ current_user.usuario }} · <a href="{{ url_for('logout') }}" class="text-decoration-none">Salir</a></span>
+        {% else %}
+        <nav class="main-nav"><a href="{{ url_for('login') }}">Iniciar sesión</a><a href="{{ url_for('registro') }}">Registrarse</a></nav>
+        {% endif %}
+    </div>
+</header>
