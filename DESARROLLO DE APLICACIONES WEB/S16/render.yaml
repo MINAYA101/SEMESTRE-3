@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ferrenova
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: FERRENOVA_SECRET_KEY
+        sync: false
